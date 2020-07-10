@@ -20,7 +20,7 @@ export class LoginService {
     return this.http.post(url, user).pipe(
       map((res: any) => {
         localStorage.setItem('token', res.token);
-
+        this.router.navigateByUrl('/login');
         return true;
       })
     );

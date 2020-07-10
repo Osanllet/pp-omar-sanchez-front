@@ -22,11 +22,9 @@ export class UsersComponent implements OnInit {
     public userService: UsersService,
     public router: Router
   ) {
-    if ( this.userService.isLogged() ) {
+    setTimeout(() => {
       this.getUsers();
-    } else {
-      this.router.navigateByUrl('/login');
-    }
+    }, 1000);
    }
 
   ngOnInit(): void {
