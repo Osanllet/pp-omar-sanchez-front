@@ -1,0 +1,19 @@
+<div class="login-wrap h-100 d-flex flex-column justify-content-center align-items-center">
+    <h1 class="text-primary mb-5">OMAR SÁNCHEZ</h1>
+    <form class="w-50" [formGroup]="loginForm" (ngSubmit)="login()" novalidate="novalidate">
+        <div class="form-group">
+            <label class="text-primary" for="inputEmail">Email</label>
+            <input type="email" class="form-control" id="inputEmail" formControlName="email" name="email" aria-describedby="emailHelp">
+            <small id="emailHelp" class="form-text text-muted" *ngIf="loginForm.controls['email'].errors?.required">* Obligatorio.</small>
+            <small id="emailHelp" class="form-text text-muted" *ngIf="loginForm.controls['email'].errors?.pattern">El formato del email es incorrecto.</small>
+        </div>
+        <div class="form-group">
+            <label class="text-primary" for="inputPassword">Contraseña</label>
+            <input type="password" class="form-control" id="inputPassword" formControlName="password" name="password" aria-describedby="passHelp">
+            <small id="passHelp" class="form-text text-muted" *ngIf="loginForm.controls['password'].errors?.required">*
+                Obligatorio.</small>
+        </div>
+        <p class="text-danger text-center mb-3 errorMessage">{{ errorMessage }}</p>
+        <button type="submit" class="btn btn-block btn-dark">Iniciar Sesión</button>
+    </form>
+</div>
